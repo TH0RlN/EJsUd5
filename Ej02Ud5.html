@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio Información sobre eventos</title>
+
+    <style type="text/css">
+        body {
+            font-family: arial, helvetica;
+        }
+
+        .box {
+            width: 160px;
+            height: 160px;
+            border: thin solid silver;
+            padding: .5em;
+            float: left;
+            margin-right: 15px;
+        }
+
+        .box h1 {
+            margin: 0;
+        }
+    </style>
+    <script type="text/javascript">
+    </script>
+</head>
+
+<body>
+    <div id="raton" class="box">
+        <h1>Ratón</h1>
+        <div></div>
+    </div>
+    <div id="teclado" class="box">
+        <h1>Teclado</h1>
+        <div></div>
+    </div>
+</body>
+    <script>
+        function muestraInformacion(mensaje, id)
+        {
+            document.getElementById(id).innerHTML = '<h1>' + mensaje[0] + '</h1>';
+            for (var i = 1; i < mensaje.length; i++)
+                document.getElementById(id).innerHTML += '<p>' + mensaje[i] + '</p>';
+        }
+
+        document.addEventListener('keydown', evt =>
+        {
+            muestraInformacion(['Teclado', 'Caracter[' + evt.key + ']', 'Código[' + evt.keyCode + ']'], 'teclado');
+            document.getElementById('teclado').style.backgroundColor = '#CCE6FF';
+        });
+
+        document.addEventListener('mousemove', evt =>
+        {
+            console.log(evt);
+            muestraInformacion(['Ratón', 'Navegador[' + evt.screenX + ', ' + evt.screenY + ']', 'Página[' + evt.pageX + ', ' + evt.pageY + ']'], 'raton');
+            document.getElementById('teclado')  .style.backgroundColor = '#fff';
+            document.getElementById('raton')    .style.backgroundColor = '#fff';
+        });
+
+        document.addEventListener('mousedown', evt =>
+        {
+            document.getElementById('raton').style.backgroundColor = '#FFFFCC';
+        });
+    </script>
+</html>

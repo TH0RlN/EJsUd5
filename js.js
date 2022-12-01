@@ -1,8 +1,18 @@
 function ocult(opt)
 {
-   document.getElementById('p' + opt).style = 'display: none'; 
+   if(document.getElementsByClassName('text')[opt].style.display != 'none')
+   {
+      document.getElementsByClassName('text')[opt].style.display  = 'none';
+      document.getElementsByClassName('link')[opt].innerHTML      = 'Mostrar contenidos';
+   }
+   else if(document.getElementsByClassName('text')[opt].style.display == 'none')
+   {
+      document.getElementsByClassName('text')[opt].style.display  = 'block';
+      document.getElementsByClassName('link')[opt].innerHTML      = 'Ocultar contenidos';
+   }
 }
 
-document.getElementById('1').addEventListener('click', evt => {ocult(1);});
-document.getElementById('2').addEventListener('click', evt => {ocult(2);});
-document.getElementById('3').addEventListener('click', evt => {ocult(3);});
+var links = document.getElementsByClassName('link');
+
+for (let i = 0; i < links.length; i++)
+   links[i].addEventListener('click', evt => {ocult(i);});
