@@ -45,22 +45,22 @@
     <form name="miFormulario" action="/clases/formulario.php?op=opcion" method="POST">
         <fieldset>
             <legend>Registro</legend>
-            <label>Nombre:</label><input type="text" id="nombre" name="nombre">
+            <label>Nombre:</label><input type="text" id="nombre" name="nombre" required>
             <label>Apellido:</label><input type="text" id="apellido" name="apellido">
-            <label>Email:</label><input type="text" id="email" name="email">
+            <label>Email:</label><input type="text" id="email" name="email" required>
             <label>Password:</label><input type="password" id="password" name="password">
             <label>Fecha nacimiento:</label><input type="text" id="nacimiento" name="nacimiento">
-            <label>Comentarios:</label><textarea id="comentarios" name="comentarios" rows="10"></textarea>
+            <label>Comentarios:</label><textarea id="comentarios" name="comentarios" rows="10" required></textarea>
             <input type="checkbox" name="condiciones" id="condiciones" checked>
             <label for="registro_condiciones">Acepto las condiciones del servicio.</label>
             <br>
             <input id="Enviar" type="button" value="Enviar" />
         </fieldset>
     </form>
+    <div id="prueba"></div>
 </body>
 <footer>
-    <script>
-
+    <script src="./Ej03Ud5.js">
     </script>
 </footer>
 </html>

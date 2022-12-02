@@ -45,7 +45,7 @@
                 document.getElementById(id).innerHTML += '<p>' + mensaje[i] + '</p>';
         }
 
-        document.addEventListener('keydown', evt =>
+        document.addEventListener('keypress', evt =>
         {
             muestraInformacion(['Teclado', 'Caracter[' + evt.key + ']', 'Código[' + evt.keyCode + ']'], 'teclado');
             document.getElementById('teclado').style.backgroundColor = '#CCE6FF';
